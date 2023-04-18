@@ -1,11 +1,8 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
-import streamlit.components.v1 as components
 from tensorflow import keras
 import tensorflow as tf
 import numpy as np
-import cv2
-import io
 import pandas as pd
 import os
 os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
@@ -65,8 +62,10 @@ def pred(img,radio,selbox,check):
     if check:
         pred=pd.DataFrame({
         'class_name' : result,
-        'pred_score' : pred.flatten()
+        'pred_score' : pred.flatten()*100
         })
+        pred.sort_values(['pred_score'],ascending = False,kind='stable',inplace=True)
+        pred.reset_index(drop=True,inplace=True)
         return pred
     pred = np.argmax(pred, axis=1)
     return result[pred[0]]
@@ -95,25 +94,35 @@ def home_page():
     st.title('Brain Tumor Detection')
     st.session_state.image=st.file_uploader('Upload MRI Image',accept_multiple_files=False,type=['png', 'jpg','jpeg'],key="upload",on_change=update_photo)
     if st.session_state.image != None:
-        st.image(st.session_state.image,width=300)
-        radio=st.radio("Model",options=('Brain Tumor Detection','Alzheimer Detection'),key='radio',on_change=update_radio)
-        check=st.checkbox('Show Prediction Scores',key='check',on_change=update_check)
+        st.image(st.session_state.image,width=150)
+        col,col2=st.columns([2,3])
+        radio=col.radio("Model",options=('Brain Tumor Detection','Alzheimer Detection'),key='radio',on_change=update_radio)
+        check=col.checkbox('Show Prediction Scores',key='check',on_change=update_check)
         if radio =='Brain Tumor Detection':
-            selbox=st.selectbox("choose a number of Classes",options=('44 Classes','17 Classes' ,'15 Classes','2 Classes'),index=0,key='box',on_change=update_selbox)
+            selbox=col2.selectbox("choose a number of Classes",options=('44 Classes','17 Classes' ,'15 Classes','2 Classes'),index=0,key='box',on_change=update_selbox)
         else:
-            selbox=st.radio("choose a number of Classes",options=(['4 Classes']),index=0,key='box1',on_change=update_selbox)
-        state =st.button('Get Result')
+            selbox=col2.radio("choose a number of Classes",options=(['4 Classes']),index=0,key='box1',on_change=update_selbox)
+        
+        state =col.button('Get Result')
         if state:
             f=open(st.session_state.image.name, 'wb') 
             f.write(st.session_state.image.getbuffer())
             f.close()
             
-            st.write(pred(st.session_state.image.name,radio,selbox,check))
+            with st.spinner('Model Running....'):
+                res=pred(st.session_state.image.name,radio,selbox,check)
+            if check:
+                col2.write(res)
+            else :
+                col2.success(str(res))
+                
+                    
+                
 
 
 
 def About_page():
-    st.write("Soon")
+    st.error("Nothing Here yet")
 
 def main():
     spr_sidebar()        
