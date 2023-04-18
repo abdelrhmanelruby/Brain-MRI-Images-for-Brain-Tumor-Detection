@@ -25,7 +25,7 @@ To run the code, you first need to install the following prerequisites:
     tensorflow 
     PIL 
 
-# About the datasts:
+# About the datasets:
 The dataset (https://www.kaggle.com/datasets/fernando2rad/brain-tumor-mri-images-44c) contains 4479 files and 44 classes
 
 The dataset (https://www.kaggle.com/datasets/fernando2rad/brain-tumor-mri-images-17-classes) contains 4448 files and 17 classes
