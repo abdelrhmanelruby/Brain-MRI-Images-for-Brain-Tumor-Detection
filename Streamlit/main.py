@@ -8,7 +8,7 @@ import os
 os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
 if 'model' not in st.session_state:
-    st.session_state.model = 'Brain Tumor Detection'
+    st.session_state.model = 'Brain MRI Tumor and Alzheimer Classification'
 def update_radio():
     st.session_state.model =st.session_state.radio
 
