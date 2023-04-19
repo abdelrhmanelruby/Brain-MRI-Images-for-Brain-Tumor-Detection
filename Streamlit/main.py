@@ -13,7 +13,7 @@ def update_radio():
     st.session_state.model =st.session_state.radio
 
 if 'clas' not in st.session_state:
-    st.session_state.clas = '2 Classes'
+    st.session_state.clas = '15 Classes'
 def update_selbox():
     st.session_state.clas =st.session_state.box
 
