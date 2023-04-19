@@ -145,7 +145,7 @@ def About_page():
     - AbdElRahman Elruby [Linkedin](https://www.linkedin.com/in/abdelrhmanelruby/) | [Github](https://github.com/abdelrhmanelruby)
     - Marwa Shaaban AbdElhakeem [Linkedin](https://www.linkedin.com/in/marwa-shaaban-abd-elhakim/) | [Github](https://github.com/Marwa-Shaaban)
     - Yara Yasser Farouk [Linkedin](https://www.linkedin.com/in/yara-yasser-64493b249/)
-    - Salma Mahmoud Fahim
+    - Salma Mahmoud Fahim [Linkedin](https://www.linkedin.com/in/salmafahim) | [Github](https://github.com/SalmaFahim)
     """
 
 def main():
