@@ -8,7 +8,7 @@ import os
 os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
 if 'model' not in st.session_state:
-    st.session_state.model = 'Brain MRI Tumor and Alzheimer Classification'
+    st.session_state.model = 'Brain Tumor Detection'
 def update_radio():
     st.session_state.model =st.session_state.radio
 
@@ -91,7 +91,7 @@ def home_page():
     if 'photo' in st.session_state:
         st.session_state.image=st.session_state.photo
 
-    st.title('Brain Tumor Detection')
+    st.title('Brain MRI Tumor and Alzheimer Classification')
     st.session_state.image=st.file_uploader('Upload MRI Image',accept_multiple_files=False,type=['png', 'jpg','jpeg'],key="upload",on_change=update_photo)
     if st.session_state.image != None:
         st.image(st.session_state.image,width=150)
