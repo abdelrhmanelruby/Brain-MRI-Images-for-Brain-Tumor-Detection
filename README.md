@@ -1,73 +1,84 @@
-# Brain-MRI-Images-for-Brain-Tumor-Detection
+# Brain-MRI-Tumor-and-Alzheimer-Classification
+Please visit the following link to access the demo version: [Brain-MRI-Tumor-and-Alzheimer-Classification](https://huggingface.co/spaces/Longliveruby/Brain-MRI-Tumor-and-Alzheimer-Classification)
 
-# Brief overview
+## Brief overview
+The goal of this project is to create a deep convolutional neural network model that can classify brain tumors and Alzheimer's disease using MRI scan images.
+The architecture is a fully convolutional network (FCN) built upon several well-known models like ResNet50V2, VGG16, and EfficientNetb5.
 
-This repository provides source code for a deep convolutional neural network architecture designed for brain tumor classification with ( Brain-MRI-Images , alzheimer-mri ) datasets. The architecture is fully convolutional network (FCN) built upon the well-known several models like ( ResNet50V2 , VGG16 , Efficientnetb5 ). 
+## Data
+For the main model, we used [Brain Tumor MRI Images 44 Classes](https://www.kaggle.com/datasets/fernando2rad/brain-tumor-mri-images-44c) a collection of T1, contrast-enhanced T1, and T2 magnetic resonance images separated by brain tumor type. Contains a total of 4479 images and 44 classes.
+We used this dataset to train our main CNN model and then tested it on different datasets. We used the same model and weights as the main model, with the only difference being the output layer. 
 
-# Sample images from Brain-MRI-Images dataset
+### Testing datasets 
+[Brain Tumor MRI Images 44 Classes](https://www.kaggle.com/datasets/fernando2rad/brain-tumor-mri-images-44c) using only tumor types 4479 images and 15 classes
+[Brain Tumor MRI Images 17 Classes](https://www.kaggle.com/datasets/fernando2rad/brain-tumor-mri-images-17-classes) contains 4448 images and 17 classes
+[Brain Tumor Classification (MRI)](https://www.kaggle.com/datasets/sartajbhuvaji/brain-tumor-classification-mri) contains 3264 images and 4 classes
+[Brain MRI Images for Brain Tumor Detection](https://www.kaggle.com/datasets/navoneel/brain-mri-images-for-brain-tumor-detection)contains 253 images and 2 classes
+[Brain_Tumor_Detection_MRI](https://www.kaggle.com/datasets/abhranta/brain-tumor-detection-mri) contains 3060 images and 2 classes
+[Alzheimer MRI Preprocessed Dataset](https://www.kaggle.com/datasets/sachinkumar413/alzheimer-mri-dataset) contains 6400 images and 2 classes
+
+#### Sample images from Brain Tumor MRI Images 44 Classes dataset
 ![image](https://user-images.githubusercontent.com/114644816/232864644-023201d3-21ec-420a-bc1b-4efdd5d548b6.png)
+![distribution_44](https://user-images.githubusercontent.com/107134115/232927885-a38a2138-d3e5-48a1-8d6f-7489ff35ab45.png)
 
 
 # Sample images from alzheimer-mri-Images dataset
-![image](https://user-images.githubusercontent.com/114644816/232865091-ebcd3a52-c52b-4f2e-a8c3-a195cc0aadcb.png)
+![sample_alzheimer](https://user-images.githubusercontent.com/107134115/232930087-96ffa33f-b609-400e-ba17-f87248d157f2.png)
+![distribution_alzheimer](https://user-images.githubusercontent.com/107134115/232930063-2f0e0027-c4bf-4a2c-a7a4-290ca1f0d973.png)
+
 
 
 # Requirements
-
 To run the code, you first need to install the following prerequisites:
+```python
+Python 3.5 or above
+tensorflow==2.9.1 
+keras==2.9.0
+streamlit==1.14.0
+streamlit_option_menu==0.3.2
+numpy
+pandas
+matplotlib 
+```
+    
+# Result
 
-    Python 3.5 or above
-    numpy
-    pandas
-    keras
-    os
-    matplotlib 
-    tensorflow 
-    PIL 
+## Brain Tumor MRI Images 44 Classes
+![EfficientNetB5_44_classes](https://user-images.githubusercontent.com/107134115/232933100-41f1b858-73c8-4432-9952-6c5d575c088a.png)
+**96.5% accuracy on the test set**
+## Brain Tumor MRI Images 17 Classes
+![EfficientNetB5_17calss](https://user-images.githubusercontent.com/107134115/232933258-19252edc-a718-4813-b8f6-318ee95b54e0.png)
+**98.1% accuracy on the test set**
+## Brain Tumor MRI Images 15 Classes
+![EfficientNetB5_15calss](https://user-images.githubusercontent.com/107134115/232933343-ef0858b1-e87f-4958-8846-777811b494c9.png)
+**99.8% accuracy on the test set**
+## Brain_Tumor_Detection_MRI 2 Classes
+![EfficientNetB5_2calss_lagre_dataset](https://user-images.githubusercontent.com/107134115/232933464-853a75b0-e931-4a70-9785-6ab44756aa26.png)
+**99.1% accuracy on the test set**
+## Alzheimer MRI Preprocessed Dataset 4 Classes
+![alzheimer](https://user-images.githubusercontent.com/107134115/232934983-ed4adbdd-a5e5-4f7e-ba98-0636a1905f86.png)
+**99.5% accuracy on the test set**
 
-# About the datasets:
-The dataset (https://www.kaggle.com/datasets/fernando2rad/brain-tumor-mri-images-44c) contains 4479 files and 44 classes
+# Deployment
+Please visit the following link to access the app's demo version: https://huggingface.co/spaces/Longliveruby/Brain-MRI-Tumor-and-Alzheimer-Classification
+The website can be accessed and tested out there. Due to the limitations of file sizes and RAM limits, I decided to go with
+[huggingface](https://huggingface.co/) because the free version is not severely limited.  
 
-The dataset (https://www.kaggle.com/datasets/fernando2rad/brain-tumor-mri-images-17-classes) contains 4448 files and 17 classes
-
-The dataset (https://www.kaggle.com/datasets/fernando2rad/brain-tumor-mri-images-17-classes) contains 253 files and 2 classes:
-
-The dataset (https://www.kaggle.com/datasets/abhranta/brain-tumor-detection-mri) contains 3060 files and 2 classes:
-
-The dataset (https://www.kaggle.com/datasets/sartajbhuvaji/brain-tumor-classification-mri) contains 3264 files and 4 classes:
-
-# Training the model :
-
-# brain-tumor-mri 44 Classes
-![image](https://user-images.githubusercontent.com/114644816/232872010-07978b5f-974c-4958-8b08-2782d493444e.png)
-96.5% accuracy
-
-# brain-tumor-mri 2 Classes
-![image](https://user-images.githubusercontent.com/114644816/232872191-a41a0413-af87-4008-82cb-3518218656c3.png)
-99.1% accuracy
-
-# brain-tumor-mri 15 Classes
-![image](https://user-images.githubusercontent.com/114644816/232872301-2522c53e-f680-430e-9154-5b4bacfc0dc0.png)
-99.8% accuracy
-
-# brain-tumor-mri 17 Classes
-![image](https://user-images.githubusercontent.com/114644816/232872738-fab00c16-2489-44bc-bc1e-3fe8cf4ee4ec.png)
-98.1% accuracy
-
-# alzheimer-mri 4 classes
-![image](https://user-images.githubusercontent.com/114644816/232873136-1c6b60e2-8401-4279-8eb3-66d863aece51.png)
-96.5% accuracy
-
-# Final Notes
-
-What's in the files?
-
-    The code in the IPython Jupyter notebooks.
-    The weights for models. The best model is named as 'imagenet'.
-    The models are stored as model files. 
+You can test the app on localhost by cloning the repository data, cd into the folder and run the following commands:
+```python
+cd Streamlit
+streamlit run main.py
+```
+Installing dependencies:
+```python
+pip install -r requirements.txt
+```
+## Contributors
+- AbdElRahman Elruby [Linkedin](https://www.linkedin.com/in/abdelrhmanelruby/) | [Github](https://github.com/abdelrhmanelruby)
+- Marwa Shaaban AbdElhakeem [Linkedin](https://www.linkedin.com/in/marwa-shaaban-abd-elhakim/) | [Github](https://github.com/Marwa-Shaaban)
+- Yara Yasser Farouk
+- Salma Mahmoud Fahim
 
 
-
-   
 
 # Thank you!
