@@ -122,7 +122,31 @@ def home_page():
 
 
 def About_page():
-    st.error("Nothing Here yet")
+    st.header('Development')
+    """
+    Check out the [repository](https://github.com/abdelrhmanelruby/Brain-MRI-Tumor-and-Alzheimer-Classification) for the source code and approaches
+    """
+    st.subheader('Data')
+    """
+    For the main model, we used [Brain Tumor MRI Images 44 Classes](https://www.kaggle.com/datasets/fernando2rad/brain-tumor-mri-images-44c) a collection of T1, contrast-enhanced T1, and T2 magnetic resonance images separated by brain tumor type. Contains a total of 4479 images and 44 classes.
+    
+    We used this dataset to train our main CNN model and then tested it on different datasets. We used the same model and weights as the main model, with the only difference being the output layer. 
+    ### Testing datasets 
+    - [Brain Tumor MRI Images 44 Classes](https://www.kaggle.com/datasets/fernando2rad/brain-tumor-mri-images-44c) using only tumor types 4479 images and 15 classes
+    - [Brain Tumor MRI Images 17 Classes](https://www.kaggle.com/datasets/fernando2rad/brain-tumor-mri-images-17-classes) contains 4448 images and 17 classes
+    - [Brain Tumor Classification (MRI)](https://www.kaggle.com/datasets/sartajbhuvaji/brain-tumor-classification-mri) contains 3264 images and 4 classes
+    - [Brain MRI Images for Brain Tumor Detection](https://www.kaggle.com/datasets/navoneel/brain-mri-images-for-brain-tumor-detection)contains 253 images and 2 classes
+    - [Brain_Tumor_Detection_MRI](https://www.kaggle.com/datasets/abhranta/brain-tumor-detection-mri) contains 3060 images and 2 classes
+    - [Alzheimer MRI Preprocessed Dataset](https://www.kaggle.com/datasets/sachinkumar413/alzheimer-mri-dataset) contains 6400 images and 2 classes
+    """
+
+    """
+    ## Contributors
+    - AbdElRahman Elruby [Linkedin](https://www.linkedin.com/in/abdelrhmanelruby/) | [Github](https://github.com/abdelrhmanelruby)
+    - Marwa Shaaban AbdElhakeem [Linkedin](https://www.linkedin.com/in/marwa-shaaban-abd-elhakim/) | [Github](https://github.com/Marwa-Shaaban)
+    - Yara Yasser Farouk [Linkedin](https://www.linkedin.com/in/yara-yasser-64493b249/)
+    - Salma Mahmoud Fahim
+    """
 
 def main():
     spr_sidebar()        
