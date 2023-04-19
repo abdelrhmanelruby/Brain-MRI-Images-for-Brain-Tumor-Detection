@@ -60,6 +60,12 @@ numpy
 pandas
 matplotlib 
 ```
+# Models
+You can find the model's layers with their weights in the [huggingface repository](https://huggingface.co/spaces/Longliveruby/Brain-MRI-Tumor-and-Alzheimer-Classification/tree/main).   
+```python
+from tensorflow import keras
+Model = keras.models.load_model(model_path)
+```
     
 # Result
 
