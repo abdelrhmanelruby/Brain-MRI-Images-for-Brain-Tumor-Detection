@@ -1,5 +1,5 @@
 # Brain-MRI-Tumor-and-Alzheimer-Classification
-Please visit the following link to access the demo version: [Brain-MRI-Tumor-and-Alzheimer-Classification](https://huggingface.co/spaces/Longliveruby/Brain-MRI-Tumor-and-Alzheimer-Classification)
+Please visit the following link to access the demo version: [Brain-MRI-Tumor-and-Alzheimer-Classification](https://longliveruby-brain-mri-tumor-and-alzheimer-classification.hf.space)
 
 ## Brief overview
 The goal of this project is to create a deep convolutional neural network model that can classify brain tumors and Alzheimer's disease using MRI scan images.
